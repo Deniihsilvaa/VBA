@@ -1,7 +1,23 @@
 Sub Abrir_janela_para_abrir_arquivo()
 
-Dim arquivo As String
-arquivo = Application.GetOpenFilename(, , "Abrir arquivos")
-Workbooks.Open arquivo
+  Dim arquivo As String
+  arquivo = Application.GetOpenFilename(, , "Abrir arquivos")
+  Workbooks.Open arquivo
+
+End Sub
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Utilizar_uma_variavel_para_abrir_um_arquivo()
+
+  Dim arquivo As String
+  arquivo = "C:\nome_do_arquivo.xlsx"
+  Workbooks.Open arquivo
+
+End Sub
+'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sub Utilizar_uma_variavel_para_abrir_um_arquivo()
+
+  Dim arquivo As String
+  arquivo = "C:\nome_do_arquivo.xlsx"
+  Workbooks.Open (arquivo)
 
 End Sub
