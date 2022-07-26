@@ -1,0 +1,7 @@
+Sub Abrir_janela_para_abrir_arquivo()
+
+Dim arquivo As String
+arquivo = Application.GetOpenFilename(, , "Abrir arquivos")
+Workbooks.Open arquivo
+
+End Sub
