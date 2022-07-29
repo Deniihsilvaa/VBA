@@ -1,0 +1,12 @@
+Dim objetobt        As Object
+Dim BtSelec         As String
+'para cada objeto
+For Each objetobt In Me.Controls
+
+'se o objeto for igual ao qual eu quero...
+If TypeName(objetobt) = "Label" Then
+ 
+
+End If
+
+Next objetobt
