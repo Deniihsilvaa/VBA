@@ -1,0 +1,7 @@
+'identificador quantidade de valores na coluna
+'wplan é a o nome da planilha
+TheMax = wplan.Cells(Rows.Count, "A").End(xlUp).Row
+'--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Se sabemos qual a última linha que contém valores, a primeira linha abaixo conterá uma célula vazia. Caso estejamos interessados nessa linha podemos fazer:
+
+LinVazia = Cells(Rows.Count,"A").End(xlUp).Offset(1,0).Row
