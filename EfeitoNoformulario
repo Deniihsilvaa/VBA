@@ -1,0 +1,65 @@
+Adicionar os modulo e classe primeiro
+'----------------------------------------------------------------------------------------Classe----------------------------------------------------------------------------------------
+
+Public WithEvents aplicamod As MSForms.Label
+
+Private Sub aplicamod_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+TiraEfeitos
+If Left(aplicamod.Name, 3) = "cmd" Then
+
+    aplicamod.SpecialEffect = fmSpecialEffectFlat
+    aplicamod.BackStyle = fmBackStyleOpaque
+    aplicamod.BackColor = &HFFFF&
+End If
+
+End Sub
+
+
+Private Sub aplicamod_MouseDown(ByVal Button As Integer, ByVal Shift As Integer, ByVal X As Single, ByVal Y As Single)
+TiraEfeitos
+If Left(aplicamod.Name, 3) = "cmd" Then
+    aplicamod.SpecialEffect = fmSpecialEffectSunken
+    aplicamod.BackStyle = fmBackStyleOpaque
+    aplicamod.BackColor = &HFFFF&
+End If
+
+End Sub
+
+'----------------------------------------------------------------------------------------modulo----------------------------------------------------------------------------------------
+
+Function TiraEfeitos()
+
+Dim contForm As Control
+
+
+For Each contForm In Menu.Controls
+    
+    If TypeName(contForm) = "Label" And Left(contForm.Name, 3) = "cmd" Then
+        
+        contForm.BackStyle = fmBackStyleTransparent
+        contForm.BorderStyle = 1
+        
+    End If
+
+Next contForm
+Set contForm = Nothing
+
+End Function
+
+'-------------------------------------------------------------------------------------Private Sub UserForm_Initialize--------------------------------------------------------------------------------------------
+Dim ObjetoBt    As Object
+Dim BtSelec     As Long
+
+ReDim BtAtual(1 To Me.Controls.Count)
+
+For Each ObjetoBt In Me.Controls
+If TypeName(ObjetoBt) = "Label" Then
+    BtSelec = BtSelec + 1
+    Set BtAtual(BtSelec) = New ClasseEfeito
+    Set BtAtual(BtSelec).aplicamod = ObjetoBt
+End If
+
+Next ObjetoBt
+Set ObjetoBt = Nothing
+
+ReDim Preserve BtAtual(1 To BtSelec)
