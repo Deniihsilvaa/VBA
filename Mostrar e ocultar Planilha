@@ -1,0 +1,11 @@
+"colocar onde desejar,Botoes,dupo clicl ou inicio de formulario
+
+Dim at      As String
+at = Application.Visible = True
+If at = "Verdadeiro" Then
+Application.Visible = False
+Else
+Application.Visible = True
+End If
+at = Empty
+Exit Sub
