@@ -1,0 +1,19 @@
+Private Sub ListView1_DblClick()
+Dim CARREGAR
+Dim INF     As String
+dim form    as objeto
+set form = "Nome do formulario"
+
+'PASSAR DADOS
+ CARREGAR = (form.ListView1.SelectedItem.Index)
+
+With form
+    .TextBox1.Text = .ListView1.ListItems(CARREGAR)
+    .TextBox2.Text = .ListView1.ListItems(CARREGAR).ListSubItems(1).Text
+    .TextBox3.Text = .ListView1.ListItems(CARREGAR).ListSubItems(2).Text
+    .TextBox4.Text = .ListView1.ListItems(CARREGAR).ListSubItems(3).Text
+    .TextBox5.Text = .ListView1.ListItems(CARREGAR).ListSubItems(4).Text
+    .TextBox6.Text = .ListView1.ListItems(CARREGAR).ListSubItems(5).Text
+End With
+
+End Sub
