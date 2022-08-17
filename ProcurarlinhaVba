@@ -1,0 +1,8 @@
+Sub PrcFormapG(valor, linha)
+Dim PlanDestino     As Worksheet
+Set PlanDestino = 'PLANILHA QUE ESTA OS DADOS
+VALOR ='VALOR ID 
+linha = PlanDestino.Range("A:A").Find(valor, , , xlWhole).Row
+
+
+End Sub
