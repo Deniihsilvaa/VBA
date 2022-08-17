@@ -1,0 +1,94 @@
+'Código para máscara de Data
+Private Sub txtData_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+
+Dim data As Variant
+
+data = formulario.TextBox2
+ If Not IsNumeric(Chr(KeyAscii.Value)) Or Len(data) >= 10 Then
+        KeyAscii.Value = 0
+    Else
+        If Len(data) = 2 Then
+        v = Left(data, 2)
+            If v >= "1" And v <= "31" Then
+               data = data & "/"
+            Else
+                MsgBox "Dia incorreto", vbCritical
+                data = Empty              
+            End If
+        ElseIf Len(data) = 5 Then
+        v = Right(data, 2)
+         If v >= "1" And v <= "12" Then
+               data = data & "/"
+            Else
+                MsgBox "Mes incorreto", vbCritical
+                data = Empty            
+            End If
+        Else
+        End If
+ formulario.TextBox2 = data
+End If
+End Sub
+
+'Código para máscara de Hora
+Private Sub txtHora_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+    If Not IsNumeric(Chr(KeyAscii.Value)) Or Len(txtHora.Text) >= 5 Then
+        KeyAscii.Value = 0
+    Else
+        If Len(txtHora.Text) = 2 Then
+            txtHora.Text = txtHora.Text & ":"
+        End If
+    End If
+End Sub
+
+'Código para máscara de CPF
+Private Sub txtCPF_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+Dim cpf     As Variant
+cpf = formulario.cx_cpf.Text
+    If Not IsNumeric(Chr(KeyAscii.Value)) Or Len(cpf) >= 14 Then
+        KeyAscii.Value = 0
+    Else
+        If Len(cpf) = 3 Then
+            cpf = cpf & "."
+        ElseIf Len(cpf) = 7 Then
+            cpf = cpf & "."
+        End If
+        If Len(cpf) = 11 Then
+            cpf = cpf & "-"
+        End If
+    End If
+    formulario.cx_cpf.Text = cpf
+End Sub
+
+'Código para máscara de CEP
+Private Sub txtCEP_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+    If Not IsNumeric(Chr(KeyAscii.Value)) Or Len(txtCEP.Text) >= 10 Then
+        KeyAscii.Value = 0
+    Else
+        If Len(txtCEP.Text) = 2 Then
+            txtCEP.Text = txtCEP.Text & "."
+        End If
+        If Len(txtCEP.Text) = 6 Then
+            txtCEP.Text = txtCEP.Text & "-"
+        End If
+    End If
+End Sub
+'Codigo mascara para celular
+
+Private Sub cx_celular_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
+Dim celular     As Variant
+
+celular = formulario.cx_celular
+ If Not IsNumeric(Chr(KeyAscii.Value)) Or Len(celular) >= 14 Then
+        KeyAscii.Value = 0
+    Else
+    If Len(celular) = 0 Then
+    celular = "(" & celular
+    ElseIf Len(celular) = 3 Then
+    celular = celular & ")"
+    ElseIf Len(celular) = 9 Then
+    celular = celular & "-"
+    
+    End If
+    End If
+    formulario.cx_celular = celular
+    End Sub
