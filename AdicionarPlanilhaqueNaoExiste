@@ -1,0 +1,10 @@
+Sub Verificar()
+'adicionar planilha que nao existe ainda
+Dim pl      As Worksheet
+On Error Resume Next
+Set pl = Sheets("Estoque")
+If pl = "Nothing" Then
+  Sheets.Add(, Sheets(Sheets.Count)).Name = "Estoque"
+  Exit Sub
+ End If
+End Sub
