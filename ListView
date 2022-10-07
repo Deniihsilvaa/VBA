@@ -1,0 +1,33 @@
+Dim lvItem      As ListItem
+Dim wplan        As Worksheet
+Dim lin         As Integer
+Dim D           As String
+Dim fmr         As Object
+Dim WsBDados As Worksheet
+  Dim N       As String
+  Dim Vpesquisado       As String
+  Dim VProcurado        As String
+   Set wplan = Sheets(D)
+Set fmr = fmr_Arvoreproduto
+
+lin = 2
+With wplan
+        While .Cells(lin, 1).Value <> ""
+        
+                With fmr.ListView1
+                    
+                        Set lvItem = fmr.ListView1.ListItems.Add(, , Format(wplan.Cells(lin, "A").Value, "0000"))
+                            lvItem.ListSubItems.Add , , wplan.Cells(lin, "B").Value
+                            lvItem.ListSubItems.Add , , wplan.Cells(lin, "C").Value
+                            lvItem.ListSubItems.Add , , wplan.Cells(lin, "D").Value
+                            lvItem.ListSubItems.Add , , wplan.Cells(lin, "E").Value
+                            lvItem.ListSubItems.Add , , wplan.Cells(lin, "F").Value
+                            lvItem.ListSubItems.Add , , wplan.Cells(lin, "G").Value
+                            lvItem.ListSubItems.Add , , wplan.Cells(lin, "H").Value
+                                           
+                End With
+
+            lin = lin + 1
+        
+        Wend
+End With
