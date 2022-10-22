@@ -1,0 +1,15 @@
+Dim ultimaLin As Long, area As New Collection
+Dim Value As Variant, temp() As Variant
+On Error Resume Next
+'A linha abaixo identifica a última linha
+ultimaLin = Planilha2.range("A" & Rows.Count).End(xlUp).Row
+'A linha abaixo refere-se a coluna que contém os dados da lista
+temp = Planilha2.range("D2:E" & ultimaLin).Value
+For Each Value In temp
+If Len(Value) > 0 Then area.Add Value, CStr(Value)
+Next Value
+For Each Value In area
+'Adicionando item ao ComboBox
+Produtos.ComboBox1.AddItem Value
+Next Value
+Set area = Nothing
