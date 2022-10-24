@@ -2,7 +2,7 @@
 Private Sub txtData_KeyPress(ByVal KeyAscii As MSForms.ReturnInteger)
 
 Dim data As Variant
-
+dim v as string
 data = formulario.TextBox2
  If Not IsNumeric(Chr(KeyAscii.Value)) Or Len(data) >= 10 Then
         KeyAscii.Value = 0
