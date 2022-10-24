@@ -1,0 +1,32 @@
+Sub CriaCabFuncionario()
+Dim wbk     As Workbook
+Dim ptCor   As Variant
+Dim cmf As String
+'Set wbk = Workbooks("NFE DE DEVOLUÇÃO.xlsm").Activate
+
+    With Fm_colaborador.ListView1_Colaborador
+        .View = lvwReport
+        .Gridlines = True
+        .FullRowSelect = True
+        .Font = Name
+        .Appearance = ccFlat
+        '.HideSelection = True
+        
+
+
+        With .ColumnHeaders
+            .Clear
+            .Add , , "ID", 30
+            .Add , , "Matricula"
+            .Add , , "FUNCIONÁRIO", 180, 2
+            .Add , , "SALÁRIO BASE ", 90, 2
+            .Add , , "AJUDA DE CUSTO", 90, 2
+            .Add , , "Função", 80, 2
+            .Add , , "Situação", 60, 2
+            
+            
+        End With
+'ID  Matricula   FUNCIONÁRIO SALÁRIO BASE    AJUDA DE CUSTO  Função
+    End With
+
+End Sub
